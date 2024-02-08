@@ -8,7 +8,7 @@
 body {
     margin: 0;
     font-family: 'Roboto-medium';
-    background-color: rgb(0, 8, 33);
+    background-color: rgb(255, 255, 255);
 }
 
 /*---------- NAVBAR ----------*/
@@ -49,7 +49,7 @@ body {
 
 /*----------- Body back ------------*/
 #back {
-    background-color: rgb(0, 8, 33);
+    background-color: rgb(255, 255, 255);
 }
 
 
@@ -92,6 +92,8 @@ body {
 .log-elem {
     border: transparent 1px solid;
     text-align: center;
+    display: flex;
+    justify-content: space-between;
 
 }
 
@@ -113,16 +115,15 @@ body {
 
 .cards {
     border: 3px solid white;
-    background-color: rgba(40, 40, 40, 0.758);
+    background-image: url(../img/bodyback.jpeg);
+    background-size: contain;
+    background-repeat: no-repeat;
     color: #097694;
     padding: 1.5vw;
     width: 100%;
     height: 100%;
     text-align: center;
-    background-image: url();
-    
-
-    
+    border-radius: 25px;
 }
 
 /* ----------- Bloc ----------- */
@@ -145,12 +146,16 @@ body {
 #planete {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 10vw;
+    margin-right: 3vw;
 }
 
 #droite {
     border: 1px white solid;
     width: 60%;
     display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }
 
 #gauche {
@@ -208,4 +213,34 @@ body {
     display: flex;
     justify-content: space-around;
     background-color: whitesmoke;
+    position: sticky;
+    top: 0px;
+}
+
+#infospla {
+    margin-top: 5vw;
+    text-align: center;
+}
+
+
+#infospla h3 {
+    color: #097694;
+}
+
+#droite-bloc {
+  background-image: url(../img/bodyback.jpeg); 
+  height: 10vw; 
+  color: white;
+
+}
+
+#droite-bloc h2 {
+    margin-left: 5vw ;
+    margin-top: 2.5vw;
+}
+
+#petit-bloc {
+    display: flex;
+    justify-content: space-around;
+    color: white;
 }
