@@ -1,0 +1,211 @@
+@font-face {
+    font-family: 'Roboto-medium';
+    src: url('../fonts/RobotoCondensed-Medium.ttf') format('truetype');
+}
+
+
+
+body {
+    margin: 0;
+    font-family: 'Roboto-medium';
+    background-color: rgb(0, 8, 33);
+}
+
+/*---------- NAVBAR ----------*/
+
+.navbar {
+    background-color: black;
+    padding: 1vw;
+    display: flex;
+    justify-content: left;
+    gap: 3vw;
+    align-items: center;
+}
+
+#logo {
+    width: 7vw;
+    height: 7vw;
+    transform: rotate(45deg);
+}
+
+.navbar a {
+    border: 5px solid black;
+    padding: 1vw;
+    color: white;
+    background-color:black;
+    width: 7vw;
+    height: 1vw;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.navbar a:hover {
+    background-color: black;
+    border: rgb(255, 255, 255) 5px double;
+    color:#097694;
+}
+
+/*---------- Fin NavBar ----------*/
+
+/*----------- Body back ------------*/
+#back {
+    background-color: rgb(0, 8, 33);
+}
+
+
+#back h1 {
+    margin: 0;
+    padding-top: 5vw;
+    padding-left: 5vw;
+    color: #097694;
+}
+
+#back p {
+    margin: 5vw;
+    color: #097694;
+}
+
+.table {
+    display: flex;
+    justify-content: space-between;
+    
+   
+}
+
+.right {
+    border:  #097694 2px solid ;
+    margin: 5vw;
+    padding: 1vw;
+    width: 30%;
+    background-color: rgb(157, 157, 157);
+    text-align: center;
+    color: white;
+}
+
+.log {
+    display: flex;
+    justify-content: space-between;
+    gap: 1vw;
+    
+}
+
+.log-elem {
+    border: transparent 1px solid;
+    text-align: center;
+
+}
+
+.log-elem p {
+    margin: 1vw !important;
+}
+
+
+/* ---------- Fin Background ----------- */ 
+
+/*----------- Infos Cards bloc -----------*/
+
+.infoscards {
+    display: flex;
+    justify-content: space-around;
+    gap: 5vw;
+    padding: 3vw;
+}
+
+.cards {
+    border: 3px solid white;
+    background-color: rgba(40, 40, 40, 0.758);
+    color: #097694;
+    padding: 1.5vw;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-image: url();
+    
+
+    
+}
+
+/* ----------- Bloc ----------- */
+
+.bloc {
+    border: white 5px double;
+    background-image: url('../img/bodyback.jpeg');
+    background-size: auto;
+    background-repeat: no-repeat;
+    margin: 2vw;
+    
+}
+
+/* ----------- ---------- ----------*/
+/* ----------- ---------- ----------*/
+/* --------- Page Planete ----------*/
+/* ----------- ---------- ----------*/
+/* ----------- ---------- ----------*/
+
+#planete {
+    display: flex;
+    justify-content: space-between;
+}
+
+#droite {
+    border: 1px white solid;
+    width: 60%;
+    display: flex;
+}
+
+#gauche {
+    border: 1px white solid;
+    width: 30%;
+    margin: 0;
+    color: #097694;
+}
+
+#right {
+    display: flex;
+    justify-content: space-around;
+}
+
+#gauche h1 {
+    margin-left: 2vw;
+}
+
+#form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    gap: 1vw;
+}
+
+#selectpl {
+    width: 30%;
+    margin-left: 2vw;
+    padding: 1vw;
+    border: white;
+    background-color: black;
+    color: white;
+}
+
+#textarea {
+    width: 75%;
+    margin-left: 2vw;
+    padding: 1vw;
+    border: white;
+    background-color: black;
+    color: white;
+}
+
+#listpla {
+    max-height: 25vw;
+    overflow-y: scroll;
+}
+
+#listpla li {
+    font-size: 1.2vw;
+    margin: 0.7vw;
+}
+
+#sticky-nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: whitesmoke;
+}

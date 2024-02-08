@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="asset/css/index.css" type="text/css" rel="stylesheet">
+    <title>AboutUniverse</title>
+</head>
+<body>
+    <div class="navbar">
+        <img id="logo" src="asset/img/logo-aboutu.png">
+        <a>Briefing</a>
+        <a>Next Mission</a>
+    </div>
+    <div id="sticky-nav">
+        <div class="log-elem">
+            <img height="50px" width="50px" src="asset/img/fusee2.png"></img>
+            <p>Vehicule</p>
+        </div>
+        <div class="log-elem">
+            <a href="planete.html"><img height="50px" width="50px" src="asset/img/planete2.png"></img></a>
+            <p>Planéte</p>
+        </div>
+        <div class="log-elem">
+            <img height="50px" width="50px" src="asset/img/reedit.png"></img>
+            <p>reddit</p>
+        </div>
+    </div>
+    <div id="planete">
+        <div id="gauche">
+            <h1>Planètes</h1>
+            <div id="form">
+                <select id="selectpl">
+                    <option value="population">par population</option>
+                    <option value="ship"></option>
+                    <option value=""></option>
+                </select>
+                <input id="textarea" type="text">
+            </div>
+            <div >
+                <ul id="listpla">
+
+                </ul>
+            </div>
+        </div>
+        <div id="droite">
+            <div id="infospla">
+                <h2 id="nameplanet"></h2>
+                <h2 id="population"></h2>
+                <h2 id="gravity"></h2>
+                <h2 id="climat"></h2>
+                <h2 id="terrain"></h2>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="asset/js/planet.js"></script>
+</body>
