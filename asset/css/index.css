@@ -11,6 +11,10 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+* a {
+text-decoration: none;
+}
+
 /*---------- NAVBAR ----------*/
 
 .navbar {
@@ -28,7 +32,7 @@ body {
     transform: rotate(45deg);
 }
 
-.navbar a {
+.itemnav  {
     border: 5px solid black;
     padding: 1vw;
     color: white;
@@ -39,7 +43,7 @@ body {
     vertical-align: middle;
 }
 
-.navbar a:hover {
+.itemnav:hover {
     background-color: black;
     border: rgb(255, 255, 255) 5px double;
     color:#097694;
@@ -95,6 +99,18 @@ body {
     display: flex;
     justify-content: space-between;
 
+}
+
+.iconePlanet {
+    rotate: 0deg;
+    transition:
+    rotate 10s ; 
+}
+
+
+
+.iconePlanet:hover {
+rotate : 360deg ;
 }
 
 .log-elem p {
