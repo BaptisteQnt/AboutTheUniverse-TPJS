@@ -1,21 +1,32 @@
 let i = 1;
 let url = 'https://swapi.dev/api/planets/?page=';
-const planets = [];
+let planets = [];
+let table =[];
 let nbrpage;
-// let rotations = [];
+
+
 
 onInit();
+
 async function onInit(){
     await countPages();
     await getplanets();
     createLi();
+    countPlanete();
 }
 
+let selectfield = document.querySelector('#selectpl');
+selectfield.addEventListener('change', launchFilter);
+
+async function launchFilter(){
+    await filter();
+    filterCreateLi();
+}
 
 async function countPages() {
     const response = await fetch('https://swapi.dev/api/planets/');
     const planeteInfo = await response.json();
-    nbrpage = planeteInfo.count / 10; 
+    nbrpage = planeteInfo.count / 10;
     
     
     // fetch('https://swapi.dev/api/planets/')
@@ -26,7 +37,6 @@ async function countPages() {
         
 }
    
-
 async function getplanets (){      
     while(i <= nbrpage){
         const response = await fetch('https://swapi.dev/api/planets/?page=' + i);
@@ -38,20 +48,19 @@ async function getplanets (){
     }
 }   
 
-
 async function createLi(){
     console.log(planets);
     let ul = document.querySelector('#listpla');
     planets.forEach(planet => {
     console.log('ok');
-        let li = document.createElement('li');
+    let li = document.createElement('li');
     li.textContent = planet.name
     ul.appendChild(li);
-    li.addEventListener('click', displayPlanet);
+    li.addEventListener('click', displayInfosPlanet);
     })
 }
 
-function displayPlanet (event) {
+function displayInfosPlanet (event) {
     console.log(event.target.textContent);
     const planet = planets.find((planet) => event.target.textContent == planet.name);
     console.log(planet);
@@ -67,6 +76,61 @@ function displayPlanet (event) {
     terrain.textContent = 'Terrain : ' + planet.terrain;
 
 };
+
+async function countPlanete (){
+    document.querySelector('#countplanete').textContent = 'Nombre de planete : ' + planets.length
+}
+
+async function filter() {
+    let select = document.querySelector('#selectpl').value;
+    let list = document.querySelectorAll('#listpla li');
+    list.forEach(function (li) {
+        li.remove();
+    });
+    table = planets;
+    if(select == 'population'){
+        table = table.sort(function(a,b) {
+            return a.population - b.population;
+        })
+    } else if ( select == 'alpha'){
+        table = table.sort(function (a,b) {
+            return a.name.localeCompare(b.name);
+        })
+    } else if (select == 'zeros'){
+        table = table.sort(function(a,b) {
+            return a.population - b.population;
+        })
+        table = table.filter(function (planet) {
+            return planet.population >= 0 && planet.population <= 100000;
+        })
+    } else if (select == 'cent'){
+        table = table.sort(function(a,b) {
+            return a.population - b.population;
+        })
+        table = table.filter(function (planet) {
+            return planet.population >= 100000 && planet.population <= 100000000;
+        })
+    } else if (select == '+cent'){
+        table = table.sort(function(a,b) {
+            return a.population - b.population;
+        })
+        table = table.filter(function (planet) {
+            return planet.population > 100000000 
+        })
+    }
+}
+
+async function filterCreateLi(){
+    console.log(table);
+    let ul = document.querySelector('#listpla');
+    table.forEach(planet => {
+    console.log('ok');
+    let li = document.createElement('li');
+    li.textContent = planet.name
+    ul.appendChild(li);
+    li.addEventListener('click', displayInfosPlanet);
+    })
+}
     
 
 // async function exe(){
