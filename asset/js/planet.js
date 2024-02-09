@@ -78,7 +78,7 @@ function displayInfosPlanet (event) {
 };
 
 async function countPlanete (){
-    document.querySelector('#countplanete').textContent = 'Nombre de planete : ' + planets.length
+    document.querySelector('#countplanete').textContent = 'Nombre de planétes : ' + planets.length
 }
 
 async function filter() {
@@ -88,6 +88,9 @@ async function filter() {
         li.remove();
     });
     table = planets;
+    table = table.sort(function(a,b) {
+        return a.population - b.population;
+    })
     if(select == 'population'){
         table = table.sort(function(a,b) {
             return a.population - b.population;
@@ -97,23 +100,14 @@ async function filter() {
             return a.name.localeCompare(b.name);
         })
     } else if (select == 'zeros'){
-        table = table.sort(function(a,b) {
-            return a.population - b.population;
-        })
         table = table.filter(function (planet) {
             return planet.population >= 0 && planet.population <= 100000;
         })
     } else if (select == 'cent'){
-        table = table.sort(function(a,b) {
-            return a.population - b.population;
-        })
         table = table.filter(function (planet) {
             return planet.population >= 100000 && planet.population <= 100000000;
         })
     } else if (select == '+cent'){
-        table = table.sort(function(a,b) {
-            return a.population - b.population;
-        })
         table = table.filter(function (planet) {
             return planet.population > 100000000 
         })
@@ -121,10 +115,8 @@ async function filter() {
 }
 
 async function filterCreateLi(){
-    console.log(table);
     let ul = document.querySelector('#listpla');
     table.forEach(planet => {
-    console.log('ok');
     let li = document.createElement('li');
     li.textContent = planet.name
     ul.appendChild(li);

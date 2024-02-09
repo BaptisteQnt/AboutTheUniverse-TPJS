@@ -8,8 +8,16 @@
 body {
     margin: 0;
     font-family: 'Roboto-medium';
-    background-color: rgb(255, 255, 255);
+    animation: zoom-in-zoom-out 180s ease infinite;
 }
+
+/* #backimg {
+    animation: zoom-in-zoom-out 180s ease infinite;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    z-index: 0;
+} */
 
 * a {
 text-decoration: none;
@@ -24,6 +32,7 @@ text-decoration: none;
     justify-content: left;
     gap: 3vw;
     align-items: center;
+    z-index: 1;
 }
 
 #logo {
@@ -53,20 +62,28 @@ text-decoration: none;
 
 /*----------- Body back ------------*/
 #back {
-    background-color: rgb(255, 255, 255);
+    background-image: url(../img/background.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 5vw;
+    
+    
 }
-
 
 #back h1 {
     margin: 0;
     padding-top: 5vw;
     padding-left: 5vw;
-    color: #097694;
+    color: #ffffff;
 }
 
 #back p {
     margin: 5vw;
-    color: #097694;
+    color: #000000;
+}
+
+#back .text {
+    color: #ffffff;
 }
 
 .table {
@@ -131,15 +148,18 @@ rotate : 360deg ;
 
 .cards {
     border: 3px solid white;
-    background-image: url(../img/bodyback.jpeg);
-    background-size: contain;
-    background-repeat: no-repeat;
-    color: #097694;
-    padding: 1.5vw;
+    /* background-image: url(../img/bodyback.jpeg);
+    background-size: auto;
+    background-repeat: no-repeat; */
+    background-color: #ffffff5f;
+    color: #ffffff;
+    padding: 2vw;
     width: 100%;
     height: 100%;
     text-align: center;
     border-radius: 25px;
+    margin-bottom: 2vw;
+    box-shadow: 20px 20px 20px #097694;
 }
 
 /* ----------- Bloc ----------- */
@@ -150,6 +170,7 @@ rotate : 360deg ;
     background-size: auto;
     background-repeat: no-repeat;
     margin: 2vw;
+    
     
 }
 
@@ -164,6 +185,7 @@ rotate : 360deg ;
     justify-content: space-between;
     margin-bottom: 10vw;
     margin-right: 3vw;
+    margin-top: 5vw;
 }
 
 #droite {
@@ -175,10 +197,12 @@ rotate : 360deg ;
 }
 
 #gauche {
-    border: 1px white solid;
+    border: 1px rgba(174, 174, 174, 0.625) solid;
+    box-shadow: 20px 20px 20px #097694;
     width: 30%;
     margin: 0;
     color: #097694;
+    margin-left: 1.5vw;
 }
 
 #right {
