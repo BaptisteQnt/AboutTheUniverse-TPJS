@@ -1,37 +1,55 @@
 let i = 1;
 let url = 'https://swapi.dev/api/planets/?page=';
 const planets = [];
+let nbrpage;
 // let rotations = [];
 
+onInit();
+async function onInit(){
+    await countPages();
+    await getplanets();
+    createLi();
+}
 
-async function all() {
-    // Un problème ici: si demain il y a 7 pages sur l'API, ça n'ira pas chercher la 7ème
-    // Alors il faut réfléchir à une solution
-    while(i <= 6){
-        
-        
-        // const response = fetch('https://swapi.dev/api/planets/?page=' + i);
-        // const data = (await response).json();
-        // i++;
-        // console.log(data);
-        // return data.result;
 
-        fetch('https://swapi.dev/api/planets/?page=' + i)
-            .then(response => response.json())
-            .then(response => {
-                let ul = document.querySelector('#listpla')
-                response.results.forEach(planet => {
-                    planets.push(planet);
-                    let li = document.createElement('li');
-                    li.textContent = planet.name
-                    ul.appendChild(li);
-                    li.addEventListener('click', displayPlanet);
-                }); 
-            })
+async function countPages() {
+    const response = await fetch('https://swapi.dev/api/planets/');
+    const planeteInfo = await response.json();
+    nbrpage = planeteInfo.count / 10; 
+    
+    
+    // fetch('https://swapi.dev/api/planets/')
+    //     .then(response => response.json())
+    //     .then(response => {
+    //         let nbrpage = response.count /10;
+    //     })
+        
+}
+   
+
+async function getplanets (){      
+    while(i <= nbrpage){
+        const response = await fetch('https://swapi.dev/api/planets/?page=' + i);
+        const data = await response.json();
+        data.results.forEach(planet => {
+        planets.push(planet);
+        })
     i++;
     }
-    
 }   
+
+
+async function createLi(){
+    console.log(planets);
+    let ul = document.querySelector('#listpla');
+    planets.forEach(planet => {
+    console.log('ok');
+        let li = document.createElement('li');
+    li.textContent = planet.name
+    ul.appendChild(li);
+    li.addEventListener('click', displayPlanet);
+    })
+}
 
 function displayPlanet (event) {
     console.log(event.target.textContent);
@@ -51,14 +69,16 @@ function displayPlanet (event) {
 };
     
 
-
-
-all();
-
 // async function exe(){
 //     await all();
 //     event1();
 // }
+
+// const response = fetch('https://swapi.dev/api/planets/?page=' + i);
+        // const data = (await response).json();
+        // i++;
+        // console.log(data);
+        // return data.result;
 
 
 // async  function obj (planet){
